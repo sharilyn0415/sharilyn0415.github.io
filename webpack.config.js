@@ -4,15 +4,16 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   output: {
     path: path.join(__dirname, "/dist"), // the bundle output path
-    filename: "bundle.js", // the name of the bundle
+    filename: "bundle.js",
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "src/index.html", // to import index.html file inside index.js
+      template: "src/index.html",
     }),
   ],
   devServer: {
-    port: 3000, // you can change the port
+    port: 3000,
+    historyApiFallback: true,
   },
   module: {
     rules: [

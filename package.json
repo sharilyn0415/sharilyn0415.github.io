@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "proxy": "https://localhost:3001",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "concurrently \"node server/index.js\" \"webpack serve --mode development --open\"",
@@ -11,10 +12,13 @@
   "keywords": [],
   "author": "",
   "dependencies": {
+    "bootstrap": "^5.3.3",
     "concurrently": "^8.2.2",
     "http-proxy-middleware": "^3.0.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-bootstrap": "^2.10.2",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.23.0"
   },
   "devDependencies": {
     "@babel/core": "^7.24.5",

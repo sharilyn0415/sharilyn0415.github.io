@@ -1,17 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from "./pages/components/nav.jsx";
+import Home from "./pages/home.jsx";
+import Progress from "./pages/progress.jsx";
 
 const App = () => {
-  const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    fetch("http://localhost:3001/api")
-      .then((res) => res.json())
-      .then((data) => setMessage(data.message));
-  }, []);
-
   return (
     <div className="App">
-      <h1>Hello: {message}</h1>
+      <Header />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/progress" element={<Progress />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 };
