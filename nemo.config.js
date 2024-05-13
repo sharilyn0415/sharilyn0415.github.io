@@ -16,7 +16,7 @@ module.exports = {
         browser: "chrome",
       },
       data: {
-        baseUrl: "http://localhost:3000",
+        baseUrl: "https://sharilyn0415.github.io",
       },
       mocha: {
         timeout: 180000,

@@ -3,14 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "homepage": "https://sharilyn0415.github.io/sharilyn0415.github.io/",
   "proxy": "https://localhost:3001",
   "scripts": {
-    "test": "concurrently \"npm start\" \"nemo -P chrome\"",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
+    "test": "nemo -P chrome",
     "start": "concurrently \"node server/index.js\" \"webpack serve --mode development --open\"",
     "build": "webpack --mode production"
   },
   "keywords": [],
-  "author": "",
+  "author": "Sharilyn",
   "dependencies": {
     "concurrently": "^8.2.2",
     "http-proxy-middleware": "^3.0.0",

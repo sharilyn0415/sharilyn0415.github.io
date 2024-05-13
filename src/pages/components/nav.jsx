@@ -10,7 +10,7 @@ const Header = () => {
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
-        <Nav.Link id="progress" eventKey="Progress" href="/progress">
+        <Nav.Link id="progress" eventKey="Progress" href="/#/progress">
           Demo Progress
         </Nav.Link>
       </Nav.Item>

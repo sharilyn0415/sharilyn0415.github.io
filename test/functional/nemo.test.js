@@ -1,3 +1,4 @@
+const demoURL = "/#/progress";
 describe("@firstTest@", function () {
   it("should load a website", async function () {
     await this.nemo.driver.get(this.nemo.data.baseUrl);
@@ -13,7 +14,7 @@ describe("@firstTest@", function () {
 
   it("should get init state as draft", async function () {
     let nemo = this.nemo;
-    await nemo.driver.get(this.nemo.data.baseUrl + "/progress");
+    await nemo.driver.get(this.nemo.data.baseUrl + demoURL);
     await nemo.view._waitVisible(".content");
     await nemo.view
       ._find("#transit")
@@ -25,7 +26,7 @@ describe("@firstTest@", function () {
 
   it("should able to transit state to review", async function () {
     let nemo = this.nemo;
-    await nemo.driver.get(this.nemo.data.baseUrl + "/progress");
+    await nemo.driver.get(this.nemo.data.baseUrl + demoURL);
     await nemo.view._find("#transit").click();
     await nemo.view
       ._find("#transit")
