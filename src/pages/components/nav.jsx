@@ -5,19 +5,13 @@ const Header = () => {
   return (
     <Nav activeKey="/home">
       <Nav.Item>
-        <Nav.Link href="/">Home</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link eventKey="Progress" href="/progress">
-          Demo 1
+        <Nav.Link id="home" href="/">
+          Home
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
-        <Nav.Link eventKey="link-2">Demo 2</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link eventKey="disabled" disabled>
-          Disabled
+        <Nav.Link id="progress" eventKey="Progress" href="/progress">
+          Demo Progress
         </Nav.Link>
       </Nav.Item>
     </Nav>

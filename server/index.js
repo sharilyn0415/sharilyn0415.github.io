@@ -9,13 +9,25 @@ const cors = require("cors");
 app.use(cors());
 // // Have Node serve the files for our built React app
 app.use(express.static(path.resolve(__dirname, "../dist")));
+app.use(express.json());
+
+const { LocalStorage } = require("node-localstorage");
+const localStorage = new LocalStorage("./scratch");
 
 app.get("/api", (req, res) => {
-  res.json({ message: "Hello from server!" });
+  const exp = localStorage.getItem("Sharilyn");
+  res.json({ message: exp });
 });
 
-app.get("/progress", (req, res) => {
-  res.json({ message: "progress" });
+app.post("/api/exp", (req, res) => {
+  const bodyContent = req.body;
+  localStorage.setItem("Sharilyn", JSON.stringify(bodyContent));
+  res.json({ message: bodyContent });
+});
+
+app.put("/api/exp", (req, res) => {
+  const exp = localStorage.getItem("Sharilyn");
+  res.json({ message: "put request" });
 });
 
 // All other GET requests not handled before will return our React app

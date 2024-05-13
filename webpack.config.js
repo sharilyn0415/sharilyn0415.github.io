@@ -33,6 +33,15 @@ module.exports = {
         loader: "url-loader",
         options: { limit: false },
       },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2?)$/,
+        use: {
+          loader: "file-loader",
+          options: {
+            name: "../css/fonts/[name]-[hash:8].[ext]",
+          },
+        },
+      },
     ],
   },
 };
