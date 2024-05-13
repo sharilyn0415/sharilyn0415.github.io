@@ -7,7 +7,7 @@
   "proxy": "https://localhost:3001",
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d dist",
     "test": "concurrently \"npm start\" \"nemo -P chrome\"",
     "start": "concurrently \"node server/index.js\" \"webpack serve --mode development --open\"",
     "build": "webpack --mode production"
