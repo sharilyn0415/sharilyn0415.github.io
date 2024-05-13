@@ -9,6 +9,7 @@ The is a web application that demonstrates the use of a custom Finite State Mach
 - [Usage](#usage)
 - [Tests](#tests)
 - [Deployment](#deployment)
+- [How to use FSM](#How-to-use-FSM)
 - [Contributing](#contributing)
 
 ## Prerequisites
@@ -79,6 +80,25 @@ This app is using [github pages](https://pages.github.com/) for deployment. For 
 
 ```bash
    npm run deploy
+```
+
+## How to use FSM
+
+1. Import FSM from `src/lib/fsm`
+
+```bash
+   import FSM from "{pathToLib}/fsm";
+```
+
+2. Create your own state machine by adding transition
+
+```bash
+   export const progressFsm = new FSM(initialState);
+   progressFsm.addTransition(
+     fromState,
+     toState,
+     action
+   );
 ```
 
 ## Contributing
