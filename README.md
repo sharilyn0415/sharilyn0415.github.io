@@ -1,6 +1,7 @@
 # sharilyn0415.github.io
 
 The is a web application that demonstrates the use of a custom Finite State Machine (FSM) library to track the progress of a multi-step form. The application provides a visual representation of the form's current state and allows users to navigate between different stages of the form seamlessly.
+live link: https://sharilyn0415.github.io/
 
 ## Table of contents
 

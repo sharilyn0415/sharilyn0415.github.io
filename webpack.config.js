@@ -6,6 +6,7 @@ module.exports = {
     path: path.join(__dirname, "/dist"), // the bundle output path
     filename: "bundle.js",
   },
+  cache: false,
   plugins: [
     new HtmlWebpackPlugin({
       template: "src/index.html",

@@ -1,6 +1,6 @@
 import Stack from "react-bootstrap/Stack";
 import ProgressBar from "react-bootstrap/ProgressBar";
-import { STATE } from "../common/constants";
+import { STATE } from "../../common/constants";
 import * as Icon from "react-bootstrap-icons";
 
 function Progress({ curState }) {
@@ -26,12 +26,11 @@ function Progress({ curState }) {
       icon: 5,
     },
   };
-  const renderIcon = () => {
-    return progress[curState];
-  };
+
   return (
     <Stack>
       <Stack direction="horizontal" gap={3}>
+        {/* render all states */}
         {Object.values(STATE).map((value, idx) => {
           const icon =
             idx < progress[curState].icon ? (
@@ -41,7 +40,7 @@ function Progress({ curState }) {
             );
           const step = value.charAt(0).toUpperCase() + value.slice(1);
           return (
-            <div className="p-3 me-auto">
+            <div className="p-3 me-auto" key={idx}>
               {icon} {step}
             </div>
           );

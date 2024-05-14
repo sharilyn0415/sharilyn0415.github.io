@@ -9,15 +9,15 @@ export const STATE = {
 };
 
 export const API = {
-  progress: `${baseURL}/api`,
-  create: `${baseURL}/api/exp`,
+  getAll: `${baseURL}/api`,
+  exp: `${baseURL}/api/exp`,
 };
 
 export const PROGRESS_STATE = {
   [STATE.draft]: {
     to: STATE.review,
     transition: "submitForReview",
-    btnText: "Submit draft",
+    btnText: "Submit",
   },
   [STATE.review]: {
     to: STATE.approve,

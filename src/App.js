@@ -1,8 +1,8 @@
 import React from "react";
 import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import Header from "./pages/components/nav.jsx";
-import Home from "./pages/home.jsx";
-import Progress from "./pages/demo.jsx";
+import Home from "./pages/homePage/home.jsx";
+import Progress from "./pages/demoPage/demo.jsx";
 
 const App = () => {
   return (

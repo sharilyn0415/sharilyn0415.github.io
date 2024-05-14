@@ -34,6 +34,3 @@ progressFsm.addTransition(
   STATE.draft,
   PROGRESS_STATE.cancel.transition
 );
-
-// progressFsm.addTransition("review", "draft", "submitForAdjust");
-// progressFsm.addTransition("approval", "draft", "submitForAdjust");

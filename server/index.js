@@ -15,19 +15,29 @@ const { LocalStorage } = require("node-localstorage");
 const localStorage = new LocalStorage("./scratch");
 
 app.get("/api", (req, res) => {
-  const exp = localStorage.getItem("Sharilyn");
-  res.json({ message: exp });
+  const items = { ...localStorage };
+  res.json({ expList: items });
+});
+
+app.get("/api/exp", (req, res) => {
+  const expId = req.query.id;
+  localStorage.getItem(expId);
+  res.json({ message: bodyContent });
 });
 
 app.post("/api/exp", (req, res) => {
   const bodyContent = req.body;
-  localStorage.setItem("Sharilyn", JSON.stringify(bodyContent));
+  localStorage.setItem(bodyContent.id, JSON.stringify(bodyContent));
   res.json({ message: bodyContent });
 });
 
 app.put("/api/exp", (req, res) => {
-  const exp = localStorage.getItem("Sharilyn");
-  res.json({ message: "put request" });
+  const bodyContent = req.body;
+  const expId = bodyContent.id;
+  const expData = localStorage.getItem(expId);
+  if (!expData) res.json({ message: "No record fund when try updating" });
+  localStorage.setItem(expId, JSON.stringify(bodyContent));
+  res.json({ message: "updated" });
 });
 
 // All other GET requests not handled before will return our React app
