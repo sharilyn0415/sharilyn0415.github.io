@@ -11,32 +11,31 @@ app.use(cors());
 app.use(express.static(path.resolve(__dirname, "../dist")));
 app.use(express.json());
 
-const { LocalStorage } = require("node-localstorage");
-const localStorage = new LocalStorage("./scratch");
+let localStorage = {}; // globle var to mock db
 
+// get all exp list
 app.get("/api", (req, res) => {
   const items = { ...localStorage };
   res.json({ expList: items });
 });
-
+// get exp meta data by id
 app.get("/api/exp", (req, res) => {
   const expId = req.query.id;
-  localStorage.getItem(expId);
-  res.json({ message: bodyContent });
+  res.json({ message: localStorage[expId] });
 });
-
+// create exp
 app.post("/api/exp", (req, res) => {
   const bodyContent = req.body;
-  localStorage.setItem(bodyContent.id, JSON.stringify(bodyContent));
+  localStorage[bodyContent.id] = bodyContent;
   res.json({ message: bodyContent });
 });
-
+// update exp
 app.put("/api/exp", (req, res) => {
   const bodyContent = req.body;
   const expId = bodyContent.id;
-  const expData = localStorage.getItem(expId);
+  const expData = localStorage[expId];
   if (!expData) res.json({ message: "No record fund when try updating" });
-  localStorage.setItem(expId, JSON.stringify(bodyContent));
+  localStorage[expId] = bodyContent;
   res.json({ message: "updated" });
 });
 

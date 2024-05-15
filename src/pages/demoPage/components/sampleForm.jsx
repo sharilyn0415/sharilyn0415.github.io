@@ -9,7 +9,7 @@ import { STATE, PROGRESS_STATE, API, FORM_DATA } from "../../common/constants";
 import { progressFsm } from "../../../lib/progressFsm";
 
 function FormExample({ currentState, setCurrentState }) {
-  const [validated, setValidated] = useState(false);
+  const [validated, setValidated] = useState(true); // true for demo purpose
   const [sliderValue, setSliderValue] = useState(50);
 
   const handleSliderChange = (e) => {
@@ -66,10 +66,10 @@ function FormExample({ currentState, setCurrentState }) {
     const form = event.currentTarget;
     switch (currentState) {
       case STATE.draft:
+        validate(form);
         create();
         return;
       case STATE.review:
-        validate(form);
         if (validated) update();
         return;
       case STATE.approve:
@@ -132,7 +132,7 @@ function FormExample({ currentState, setCurrentState }) {
             required
             type="text"
             placeholder="ExperimentName"
-            defaultValue="BannerSize"
+            defaultValue="LandingPage:Banner"
             readOnly={currentState === "draft" ? "" : "readOnly"}
           />
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
@@ -158,7 +158,7 @@ function FormExample({ currentState, setCurrentState }) {
               type="text"
               placeholder="ProductPoc"
               aria-describedby="inputGroupPrepend"
-              defaultValue="Mark"
+              defaultValue="Ian Ramesh"
               required
               readOnly={currentState === "draft" ? "" : "readOnly"}
             />
@@ -175,7 +175,7 @@ function FormExample({ currentState, setCurrentState }) {
               type="text"
               placeholder="EngeeringPoc"
               aria-describedby="inputGroupPrepend"
-              defaultValue="John"
+              defaultValue="John Marr"
               required
               readOnly={currentState === "draft" ? "" : "readOnly"}
             />

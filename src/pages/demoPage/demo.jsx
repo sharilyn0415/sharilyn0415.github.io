@@ -38,7 +38,6 @@ const DemoProgress = () => {
         </Stack>
       </Stack>
       <Stack className="mt-5">
-        <p>Data return from backend service</p>
         <ExpList expList={expList} />
       </Stack>
     </div>
