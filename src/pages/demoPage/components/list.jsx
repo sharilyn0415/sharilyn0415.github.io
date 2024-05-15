@@ -1,7 +1,6 @@
 import Table from "react-bootstrap/Table";
 
 function ExpTable({ expList }) {
-  console.log(expList, expList);
   if (expList.length === 0) return <>No exp data from backend</>;
   return (
     <Table striped bordered hover>
