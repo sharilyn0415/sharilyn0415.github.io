@@ -5,6 +5,7 @@ import { STATE, API } from "../common/constants.js";
 import Form from "./components/sampleForm.jsx";
 import Progress from "./components/progress.jsx";
 import ExpList from "./components/list.jsx";
+import { Button } from "react-bootstrap";
 
 const DemoProgress = () => {
   const [expList, setExpList] = useState([]);
@@ -20,6 +21,14 @@ const DemoProgress = () => {
       console.error(error.message);
     }
   }, [currentState]);
+
+  const handleClean = () => {
+    try {
+      fetch(API.clean).then((res) => console.log(res));
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
   return (
     <div className="content">
       <Progress curState={currentState} className="progressBar  mb-5" />
@@ -39,6 +48,9 @@ const DemoProgress = () => {
       </Stack>
       <Stack className="mt-5">
         <ExpList expList={expList} />
+        <Button variant="link" onClick={handleClean}>
+          Clear
+        </Button>
       </Stack>
     </div>
   );

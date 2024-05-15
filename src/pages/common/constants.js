@@ -11,6 +11,7 @@ export const STATE = {
 export const API = {
   getAll: `${baseURL}/api`,
   exp: `${baseURL}/api/exp`,
+  clean: `${baseURL}/api/delete`,
 };
 
 export const PROGRESS_STATE = {

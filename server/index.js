@@ -38,6 +38,11 @@ app.put("/api/exp", (req, res) => {
   localStorage[expId] = bodyContent;
   res.json({ message: "updated" });
 });
+// to clean storage for demo purpose
+app.get("/api/delete", (req, res) => {
+  localStorage = {};
+  res.json({ msg: "Cleaned record" });
+});
 
 // All other GET requests not handled before will return our React app
 app.get("*", (req, res) => {
